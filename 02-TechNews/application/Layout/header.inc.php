@@ -1,4 +1,23 @@
+<?php
 
+/*importation des classes*/
+use application\Model\Categorie\CategorieDb;
+use application\Model\Tags\TagsDb;
+use application\Model\ViewArticle\ViewArticleDB;
+
+/*recuperation des categories*/
+$CategorieDb = new CategorieDb();
+$categories = $CategorieDb->fetchAll();
+
+/*recuperation des tags*/
+$TagsDb = new TagsDb();
+$tags = $TagsDb->fetchAll();
+
+/*récuperation des articles*/
+$ViewArticleDb = new ViewArticleDB();
+$articles = $ViewArticleDb->fetchAll();
+
+ ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -13,11 +32,14 @@
     <link rel="apple-touch-icon" href="<?= PUBLIC_URL; ?>/images/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="72x72" href="<?= PUBLIC_URL; ?>/images/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="<?= PUBLIC_URL; ?>/images/apple-touch-icon-114x114.png">
+    <!-- ionicon -->
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Online Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,700&subset=latin-ext" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700" rel="stylesheet">
     <!-- Vender -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="<?= PUBLIC_URL; ?>/css/font-awesome.min.css" rel="stylesheet" />
     <link href="<?= PUBLIC_URL; ?>/css/bootstrap.min.css" rel="stylesheet" />
     <link href="<?= PUBLIC_URL; ?>/css/normalize.min.css" rel="stylesheet" />

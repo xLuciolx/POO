@@ -23,6 +23,12 @@
   /*Constante pour les vues*/
   define('VIEW_SITE', ROOT.'/application/Views');
 
+  /*Connexion BDD*/
+  define('DBHOST',     'localhost');
+  define('DBNAME',     'technews');
+  define('DBUSERNAME', 'root');
+  define('DBPASSWORD', '');
+
   /*Autoloader*/
   require_once 'Autoloader.php';
   Autoloader::register();

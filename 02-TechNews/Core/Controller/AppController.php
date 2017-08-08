@@ -8,8 +8,8 @@
 
   /**
    * Permet de générer l'affichage de la vue passée en parametre
-   * @param  String $view Vue à afficher
-   * @param Array $viewparams Données à passer à la vue
+   * @param  string $view Vue à afficher
+   * @param array $viewparams Données à passer à la vue
    */
     protected function render($view, $viewparams = null) {
 
@@ -29,5 +29,14 @@
 
     public function getParams() {
       return $this->_viewparams;
+    }
+
+    /**
+     * Fonction permettant le debuggage des parametres de la vue.
+     */
+    public function debug(){
+      echo '<pre>';
+      print_r($this->_viewparams);
+      echo '</pre>';
     }
   }

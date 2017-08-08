@@ -1,17 +1,29 @@
 <?php
   namespace application\Controller;
+  // use application\Model\Categorie\CategorieDb;
 
   class NewsController extends \Core\Controller\AppController {
 
     public function index() {
-      $this->render('news/index', ['titre' => 'WebForce3', 'Accroche' => 'Partez touis !']);
+      $this->render('news/index');
     }
 
     public function categorie() {
-      echo '<h1>Je suis la page Categorie</h1>';
+
+      /*connexion BDD*/
+      // $CategorieDb  = new CategorieDb();
+
+      /*récuperation des categories*/
+      // $categories = $CategorieDb->fetchAll();
+
+      /*Affichage de la vue*/
+      $this->render('news/categorie');
+
     }
 
     public function article() {
-      echo '<h1>Je suis la page Article</h1>';
+      $this->render('news/article');
+
     }
+
   }

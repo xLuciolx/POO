@@ -2,7 +2,7 @@
 
   namespace Core;
 
-  class Core {
+  class Core extends \Core\Controller\AppController {
 
     public function __construct($params) /*parametre de la route*/
     {
@@ -27,13 +27,15 @@
         }
 
         else {
-          echo '<h1>404 - Page introuvable</h1><h3>Cette vue n\'existe pas</h3>';
+          #echo '<h1>404 - Page introuvable</h1><h3>Cette vue n\'existe pas</h3>';
+          $this->render('errors/404', ['erreur'=>'Aucune vue correspondante']);
         }
 
       }
 
       else{
-        echo '<h1>404 - Page introuvable</h1><h3>Ce controleur n\'existe pas</h3>';
+        #echo '<h1>404 - Page introuvable</h1><h3>Ce controleur n\'existe pas</h3>';
+        $this->render('errors/404', ['erreur'=>'Auncun controleur correspondant']);
       }
 
       // if ($controller == 'news' && $action == 'index') {
