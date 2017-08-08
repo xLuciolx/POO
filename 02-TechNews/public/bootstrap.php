@@ -17,6 +17,9 @@
   /*En-tete du site*/
   define('HEADER_SITE', ROOT.'/application/Layout/header.inc.php');
 
+  /*Sidebar*/
+  define('SIDEBAR_SITE', ROOT.'/application/Layout/sidebar.inc.php');
+
   /*Footer*/
   define('FOOTER_SITE', ROOT.'/application/Layout/footer.inc.php');
 

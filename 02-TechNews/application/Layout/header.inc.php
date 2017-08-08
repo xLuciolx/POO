@@ -16,6 +16,8 @@ $tags = $TagsDb->fetchAll();
 /*récuperation des articles*/
 $ViewArticleDb = new ViewArticleDB();
 $articles = $ViewArticleDb->fetchAll();
+$spotlights = $ViewArticleDb->fetchAll('WHERE SPOTLIGHTARTICLE = 1');
+$specials = $ViewArticleDb->fetchAll('WHERE SPECIALARTICLE = 1');
 
  ?>
 <!DOCTYPE html>
@@ -26,7 +28,7 @@ $articles = $ViewArticleDb->fetchAll();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="congnd91">
-    <title>TEZ NEWS | Magagize & News HTML Template</title>
+    <title>TECH NEWS | Magagize & News HTML Template</title>
     <!-- Favicons -->
     <link rel="shortcut icon" href="<?= PUBLIC_URL; ?>/images/favicon.png">
     <link rel="apple-touch-icon" href="<?= PUBLIC_URL; ?>/images/apple-touch-icon-57x57.png">
