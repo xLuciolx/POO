@@ -93,30 +93,30 @@
  	<section class="spotlight-thumbs">
  		<div class="row">
 
-
-          <?php foreach ($articles as $article): ?>
-            <div class="col-md-4 col-sm-4 col-xs-12">
-              <div class="spotlight-item-thumb">
-                <div class="spotlight-item-thumb-img">
-   						    <a href="#">
-   							    <img alt="" src="<?= PUBLIC_URL . '/images/product/' . $article->getFEATUREDIMAGEARTICLE(); ?>" />
-   						    </a>
-                  <a href="#" class="cate-tag"><?= $article->getLIBELLECATEGORIE(); ?></a>
-                </div>
-                <h3><a href="#"><?= $article->getTITREARTICLE(); ?></a></h3>
-   					    <div class="meta-post">
-   						    <a href="#">
-   							    <?= $article->getNomComplet(); ?>
-   						    </a>
-   						    <em></em>
-   						    <span>
-   							    <?= $article->getDATECREATIONARTICLE();?>
-   						     </span>
-   					    </div>
-   				  </div>
-   				  </div>
-          <?php endforeach; ?>
-
+      <?php foreach ($articles as $article): ?>
+        <div class="col-md-4 col-sm-4 col-xs-12">
+          <div class="spotlight-item-thumb">
+            <div class="spotlight-item-thumb-img">
+   						<a href="#">
+   							<img alt="" src="<?= PUBLIC_URL . '/images/product/' . $article->getFEATUREDIMAGEARTICLE(); ?>" />
+   						</a>
+              <a href="#" class="cate-tag"><?= $article->getLIBELLECATEGORIE(); ?></a>
+            </div>
+            <h3>
+              <a href="#"><?= $article->getTITREARTICLE(); ?></a>
+            </h3>
+   					<div class="meta-post">
+   						<a href="#">
+   							<?= $article->getNomComplet(); ?>
+   						</a>
+   						<em></em>
+   						<span>
+   							<?= $article->getDATECREATIONARTICLE();?>
+   						</span>
+   					 </div>
+   				 </div>
+   			</div>
+      <?php endforeach; ?>
 
  		</div>
  	</section>

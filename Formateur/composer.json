@@ -1,7 +1,0 @@
-{
-  "name" : "POO - Limas",
-  "repositories" : [ {
-    "type" : "composer",
-    "url" : "https://packagist.org/"
-  } ]
-}
