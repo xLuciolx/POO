@@ -1,3 +1,7 @@
+<?php
+	$params = $this->getParams();
+ ?>
+
 <!--colright-->
 <div class="col-md-4 col-sm-12">
 	<!--tab popular-->
@@ -11,82 +15,26 @@
 	<div class="tab-content">
 		<div role="tabpanel" class="tab-pane active" id="tab1">
 			<ul class="list-news-popular">
-				<li>
-					<a href="#">
-						<img alt="" src="images/product/8.jpg">
-					</a>
-					<h3><a href="#">Netflix Speeds Jumped 51% This Year</a></h3>
-					<div class="meta-post">
-						<a href="#">
-							Ashley Ford
 
-						</a>
-						<em></em>
-						<span>
-							24 Aug  2016
-						</span>
-					</div>
-				</li>
-				<li>
-					<a href="#">
-						<img alt="" src="images/product/9.jpg">
-					</a>
-					<h3><a href="#">Uber wants to build planes to beat city traffic</a></h3>
-					<div class="meta-post">
+				<?php foreach ($params['lasts'] as $last): ?>
+					<li>
 						<a href="#">
-							Karla	Walters
+							<img alt="" src="<?= PUBLIC_URL . '/images/product/' . $last->getFEATUREDIMAGEARTICLE(); ?>">
 						</a>
-						<em></em>
-						<span>
-							04 Sep  2016
-						</span>
-					</div>
-				</li>
-				<li>
-					<a href="#">
-						<img alt="" src="images/product/10.jpg">
-					</a>
-					<h3><a href="#">Apple reportedly prototyping their Amazon Echo competitor</a></h3>
-					<div class="meta-post">
-						<a href="#">
-							Super User
-						</a>
-						<em></em>
-						<span>
-							01 Sep  2016
-						</span>
-					</div>
-				</li>
-				<li>
-					<a href="#">
-						<img alt="" src="images/product/11.jpg">
-					</a>
-					<h3><a href="#">Watch out: That USB stick in your mailbox might be infected</a></h3>
-					<div class="meta-post">
-						<a href="#">
-							Sue	Benson
-						</a>
-						<em></em>
-						<span>
-							27 Aug  2016
-						</span>
-					</div>
-				</li>
-				<li>
-					<a href="#">
-						<img alt="" src="images/product/13.jpg">
-					</a>
-					<h3><a href="#">Tumblr brings Apple’s ‘Live Photos’ to the web</a></h3>
-					<div class="meta-post">
-						<a href="#">
-							Super User
-						</a>
-						<em></em>
-						<span>
-							15 Sep 2016
-						</span>
-					</div>
-				</li>
+						<h3><a href="#"><?= $last->getTITREARTICLE(); ?></a></h3>
+						<div class="meta-post">
+							<a href="#">
+								<?= $last->getAuteurObj()->getNOMCOMPLET(); ?>
+
+							</a>
+							<em></em>
+							<span>
+								<?= $last->getDATECREATIONARTICLE(); ?>
+							</span>
+						</div>
+					</li>
+				<?php endforeach; ?>
+
 			</ul>
 
 		</div>
@@ -148,7 +96,7 @@
 			</span>
 		</div>
 		<div class="list-special">
-			<?php foreach ($specials as $special): ?>
+			<?php foreach ($params['specials'] as $special): ?>
 				<article class="news-two-large">
 					<a href="#">
 						<img alt="" src="<?= PUBLIC_URL . '/images/product/' . $special->getFEATUREDIMAGEARTICLE(); ?>">
@@ -156,7 +104,7 @@
 					<h3><a href="#"><?= $special->getTITREARTICLE(); ?></a></h3>
 					<div class="meta-post">
 						<a href="#">
-							<?= $special->getNomComplet(); ?>
+							<?= $special->getAuteurObj()->getNomComplet(); ?>
 						</a>
 						<em></em>
 						<span>

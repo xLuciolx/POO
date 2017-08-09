@@ -22,9 +22,6 @@
         /*Inclusion de la Vue*/
         include_once VIEW_SITE . '/' . $view . '.php';
 
-        /*Affichage de la sidebar*/
-        require (SIDEBAR_SITE);
-
       /*Affichage du pied de page*/
       require (FOOTER_SITE);
 

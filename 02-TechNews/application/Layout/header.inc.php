@@ -3,7 +3,6 @@
 /*importation des classes*/
 use application\Model\Categorie\CategorieDb;
 use application\Model\Tags\TagsDb;
-use application\Model\ViewArticle\ViewArticleDB;
 
 /*recuperation des categories*/
 $CategorieDb = new CategorieDb();
@@ -13,11 +12,6 @@ $categories = $CategorieDb->fetchAll();
 $TagsDb = new TagsDb();
 $tags = $TagsDb->fetchAll();
 
-/*récuperation des articles*/
-$ViewArticleDb = new ViewArticleDB();
-$articles = $ViewArticleDb->fetchAll();
-$spotlights = $ViewArticleDb->fetchAll('WHERE SPOTLIGHTARTICLE = 1');
-$specials = $ViewArticleDb->fetchAll('WHERE SPECIALARTICLE = 1');
 
  ?>
 <!DOCTYPE html>
