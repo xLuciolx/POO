@@ -58,4 +58,7 @@
 
     }
 
+//     public function fetchAll($params = '') { // $where = ''; $sql = "SELECT * FROM ".$this->_table;
+// if(isset($params['where'])) $sql .= ' WHERE '.$params['where']; if(isset($params['$orderBy'])) $sql .= ' ORDER BY '.$params['$orderBy']; if(isset($params['$limit'])) $sql .= ' LIMIT '.$params['$limit']; $sth = $this->_db->prepare($sql); $sth->execute(); return $sql;
+
   }
