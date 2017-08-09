@@ -25,11 +25,11 @@ class Article {
   {
     #L'appel au constructeur se fait automatiquement par la classe PDO
     #A chaque construction nous allons récuperer des infos.
-    $CategorieDb = new CategorieDb();
+    $CategorieDb        = new CategorieDb();
     $this->CategorieObj = $CategorieDb->fetchOne($this->IDCATEGORIE);
 
-    $AuteurDb = new AuteurDb();
-    $this->AuteurObj = $AuteurDb->fetchOne($this->IDAUTEUR);
+    $AuteurDb           = new AuteurDb();
+    $this->AuteurObj    = $AuteurDb->fetchOne($this->IDAUTEUR);
 
   }
 
@@ -123,7 +123,7 @@ class Article {
 
   /**
    * Retourne une accroche de 170 caracteres
-   * @return string retourne une acroche de l'article
+   * @return string retourne une accroche de l'article
    */
   public function getAccroche(){
     /*supprimer toutes les balises*/

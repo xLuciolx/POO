@@ -9,11 +9,21 @@
 
       $ArticleDb   = new ArticleDb();
       $articles    = $ArticleDb->fetchAll();
-      $spotlights  = $ArticleDb->fetchAll('WHERE SPOTLIGHTARTICLE = 1');
-      $specials    = $ArticleDb->fetchAll('WHERE SPECIALARTICLE = 1');
-      $lasts       = $ArticleDb->fetchAll('ORDER BY DATECREATIONARTICLE DESC LIMIT 5');
 
-      $this->render('news/index', ['articles' => $articles, 'spotlights' => $spotlights, 'specials' => $specials, 'lasts' => $lasts]);
+      $where       = 'SPOTLIGHTARTICLE = 1';
+      $spotlights  = $ArticleDb->fetchAll(['where' => $where]);
+
+      $where2      = 'SPECIALARTICLE = 1';
+      $specials    = $ArticleDb->fetchAll(['where' => $where2]);
+
+      $orderBy     = 'DATECREATIONARTICLE DESC';
+      $limit       = '5';
+      $lasts       = $ArticleDb->fetchAll(['orderBy' => $orderBy, 'limit' => $limit]);
+
+      $this->render('news/index', ['articles' => $articles,
+                                   'spotlights' => $spotlights,
+                                   'specials' => $specials,
+                                   'lasts' => $lasts]);
     }
 
     public function categorie() {

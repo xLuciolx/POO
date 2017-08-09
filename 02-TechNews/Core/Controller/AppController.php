@@ -8,7 +8,7 @@
 
   /**
    * Permet de générer l'affichage de la vue passée en parametre
-   * @param  string $view Vue à afficher
+   * @param string $view Vue à afficher
    * @param array $viewparams Données à passer à la vue
    */
     protected function render($view, $viewparams = null) {

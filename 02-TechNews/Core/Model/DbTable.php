@@ -30,13 +30,13 @@
      * @param  string $param  parametre pour requete
      * @return array
      */
-    public function fetchAll($param = null){
-
-      $sql = "SELECT * FROM " . $this->_table . ' ' . $param;
-      $sth = $this->_db->prepare($sql);
-      $sth->execute();
-      return $sth->fetchAll(\PDO::FETCH_CLASS, $this->_classToMap);
-    }
+    // public function fetchAll($param = null){
+    //
+    //   $sql = "SELECT * FROM " . $this->_table . ' ' . $param;
+    //   $sth = $this->_db->prepare($sql);
+    //   $sth->execute();
+    //   return $sth->fetchAll(\PDO::FETCH_CLASS, $this->_classToMap);
+    // }
 
     /**
      * Récupère un enregistrement dans la BDD pour l'ID et la colonne passée en parametres
@@ -58,7 +58,15 @@
 
     }
 
-//     public function fetchAll($params = '') { // $where = ''; $sql = "SELECT * FROM ".$this->_table;
-// if(isset($params['where'])) $sql .= ' WHERE '.$params['where']; if(isset($params['$orderBy'])) $sql .= ' ORDER BY '.$params['$orderBy']; if(isset($params['$limit'])) $sql .= ' LIMIT '.$params['$limit']; $sth = $this->_db->prepare($sql); $sth->execute(); return $sql;
-
+    public function fetchAll($params = '')
+    {
+      // $where = '';
+      $sql = "SELECT * FROM ".$this->_table;
+      if(isset($params['where']))   $sql .= ' WHERE '.$params['where'];
+      if(isset($params['orderBy'])) $sql .= ' ORDER BY '.$params['orderBy'];
+      if(isset($params['limit']))   $sql .= ' LIMIT '.$params['limit'];
+      $sth = $this->_db->prepare($sql);
+      $sth->execute();
+      return $sth->fetchAll(\PDO::FETCH_CLASS, $this->_classToMap);
+    }
   }
