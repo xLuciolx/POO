@@ -1,7 +1,7 @@
 <?php
   namespace application\Controller;
   use application\Model\Article\ArticleDb;
-  // use application\Model\Categorie\CategorieDb;
+  use Core\Model\ORM;
 
   class NewsController extends \Core\Controller\AppController {
 
@@ -13,35 +13,71 @@
       $where       = 'SPOTLIGHTARTICLE = 1';
       $spotlights  = $ArticleDb->fetchAll(['where' => $where]);
 
-      $where2      = 'SPECIALARTICLE = 1';
-      $specials    = $ArticleDb->fetchAll(['where' => $where2]);
-
-      $orderBy     = 'DATECREATIONARTICLE DESC';
-      $limit       = '5';
-      $lasts       = $ArticleDb->fetchAll(['order by' => $orderBy, 'limit' => $limit]);
-
       $this->render('news/index', ['articles' => $articles,
-                                   'spotlights' => $spotlights,
-                                   'specials' => $specials,
-                                   'lasts' => $lasts]);
+                                   'spotlights' => $spotlights
+                                   ]);
     }
 
-    public function categorie() {
+    public function business() {
 
       /*connexion BDD*/
+      $ArticleDb = new ArticleDb();
 
+      /*recuperation des articles*/
+      $articles = $ArticleDb->fetchAll(['where' => 'IDCATEGORIE = 2']);
 
-      /*récuperation des categories*/
-      // $categories = $CategorieDb->fetchAll();
-
-      /*Affichage de la vue*/
-      $this->render('news/categorie');
+      $this->render('news/categorie', ['articles' => $articles]);
 
     }
 
-    public function article() {
-      $this->render('news/article');
+    public function tech() {
 
+      /*connexion BDD*/
+      $ArticleDb = new ArticleDb();
+
+      /*recuperation des articles*/
+      $articles = $ArticleDb->fetchAll(['where' => 'IDCATEGORIE = 4']);
+
+      $this->render('news/categorie', ['articles' => $articles]);
+
+    }
+
+    public function computing() {
+
+      /*connexion BDD*/
+      $ArticleDb = new ArticleDb();
+
+      /*recuperation des articles*/
+      $articles = $ArticleDb->fetchAll(['where' => 'IDCATEGORIE = 3']);
+
+      $this->render('news/categorie', ['articles' => $articles]);
+
+    }
+
+
+    public function article() {
+
+      /*Récupération de l'article*/
+      $article = ORM::for_table('article')->find_one($_GET['idarticle']);
+
+      $suggestions = ORM::for_table('view_articles')
+      ->where('IDCATEGORIE', $article->IDCATEGORIE)
+      ->where_not_equal('IDARTICLE', $article->IDARTICLE)
+      ->limit(3)
+      ->order_by_desc('IDARTICLE')
+      ->find_result_set();
+
+      $this->render('news/article', ['article' => $article, 'suggestions' => $suggestions]);
+
+    }
+
+    /*Test fonctionnement idiorm*/
+    public function  idiorm(){
+
+        $categories  = ORM::for_table('categorie')->find_result_set();
+        $auteurs = ORM::for_table('auteur')->find_result_set();
+
+        $this->render('news/idiorm', ['auteurs' => $auteurs]);
     }
 
   }

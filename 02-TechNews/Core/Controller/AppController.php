@@ -1,10 +1,18 @@
 <?php
 
   namespace Core\Controller;
+  use Core\Model\DbFactory;
+
 
   class AppController {
 
     private $_viewparams;
+
+    public function __construct()
+    {
+      /*Initilisation de ORMFactory*/
+      DbFactory::ORMFactory();
+    }
 
   /**
    * Permet de générer l'affichage de la vue passée en parametre
@@ -38,5 +46,17 @@
       echo '<pre>';
       print_r($this->_viewparams);
       echo '</pre>';
+    }
+
+    /**
+     * Verifie l'existence de valeur dans $_GET['action']
+     * @return string action
+     */
+    public function getAction(){
+
+      if(empty($_GET['action'])){
+        return 'accueil';
+      }
+      return $_GET['action'];
     }
   }

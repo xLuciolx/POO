@@ -3,7 +3,7 @@
 
 		'use strict';
         /**Preload**/
-		$('#page-loader').delay(600).fadeOut(400, function () {
+		$('#page-loader').delay(0).fadeOut(0, function () {
 			$('body').fadeIn();
 		});
 
@@ -41,7 +41,10 @@
 		$('.owl-spotlight').owlCarousel({
 			loop: true,
 			nav: true,
-			items: 1,
+			autoplay: true,
+			autoplayHoverPause: true,
+			autoplayTimeout: 3000,
+			items: 2,
 			mouseDrag: false,
 			navText: ['<i class=\'fa fa-angle-left\'></i>', '<i class=\'fa fa-angle-right\'></i>']
 		});
@@ -69,5 +72,12 @@
 		if ($('.reviews-item').length) {
 			$('.reviews-item').matchHeight();
 		}
+
+		$('#news').on('click', function(){
+			var regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
+			if (! regex.test($('#mail').val())) {
+				alert('Veuillez saisir une adresse mail valide');
+			}
+		});
 	});
 })(jQuery);

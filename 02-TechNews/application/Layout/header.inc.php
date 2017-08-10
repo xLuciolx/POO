@@ -1,6 +1,7 @@
 <?php
 
 /*importation des classes*/
+use application\Model\Article\ArticleDb;
 use application\Model\Categorie\CategorieDb;
 use application\Model\Tags\TagsDb;
 
@@ -12,6 +13,14 @@ $categories = $CategorieDb->fetchAll();
 $TagsDb = new TagsDb();
 $tags = $TagsDb->fetchAll();
 
+/*Info de la sidebar*/
+$ArticleDb   = new ArticleDb;
+$where      = 'SPECIALARTICLE = 1';
+$specials    = $ArticleDb->fetchAll(['where' => $where]);
+
+$orderBy     = 'DATECREATIONARTICLE DESC';
+$limit       = '5';
+$lasts       = $ArticleDb->fetchAll(['order by' => $orderBy, 'limit' => $limit]);
 
  ?>
 <!DOCTYPE html>

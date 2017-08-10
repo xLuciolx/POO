@@ -1,6 +1,4 @@
-<?php
-	$params = $this->getParams();
- ?>
+
 
 <!--colright-->
 <div class="col-md-4 col-sm-12">
@@ -16,12 +14,12 @@
 		<div role="tabpanel" class="tab-pane active" id="tab1">
 			<ul class="list-news-popular">
 
-				<?php foreach ($params['lasts'] as $last): ?>
+				<?php foreach ($lasts as $last): ?>
 					<li>
-						<a href="#">
+						<a href="<?= $last->generateURL();?>">
 							<img alt="" src="<?= PUBLIC_URL . '/images/product/' . $last->getFEATUREDIMAGEARTICLE(); ?>">
 						</a>
-						<h3><a href="#"><?= $last->getTITREARTICLE(); ?></a></h3>
+						<h3><a href="<?= $last->generateURL();?>"><?= $last->getTITREARTICLE(); ?></a></h3>
 						<div class="meta-post">
 							<a href="#">
 								<?= $last->getAuteurObj()->getNOMCOMPLET(); ?>
@@ -44,8 +42,8 @@
 	<div class="subcribe-box">
 		<h3>NEWSLETTER</h3>
 		<p>Inscrivez-vous pour recevoir nos dernières publications.</p>
-		<input type="text" placeholder="Votre Email..." />
-		<button class="my-btn">Je m'inscris</button>
+		<input type="text" placeholder="Votre Email..." id="mail"/>
+		<button class="my-btn" id="news">Je m'inscris</button>
 	</div>
 	<!-- connect us-->
 	<div class="connect-us">
@@ -96,12 +94,12 @@
 			</span>
 		</div>
 		<div class="list-special">
-			<?php foreach ($params['specials'] as $special): ?>
+			<?php foreach ($specials as $special): ?>
 				<article class="news-two-large">
-					<a href="#">
+					<a href="<?= $special->generateURL();?>">
 						<img alt="" src="<?= PUBLIC_URL . '/images/product/' . $special->getFEATUREDIMAGEARTICLE(); ?>">
 					</a>
-					<h3><a href="#"><?= $special->getTITREARTICLE(); ?></a></h3>
+					<h3><a href="<?= $special->generateURL();?>"><?= $special->getTITREARTICLE(); ?></a></h3>
 					<div class="meta-post">
 						<a href="#">
 							<?= $special->getAuteurObj()->getNomComplet(); ?>
