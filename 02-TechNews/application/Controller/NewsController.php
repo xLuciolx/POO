@@ -18,7 +18,7 @@
 
       $orderBy     = 'DATECREATIONARTICLE DESC';
       $limit       = '5';
-      $lasts       = $ArticleDb->fetchAll(['orderBy' => $orderBy, 'limit' => $limit]);
+      $lasts       = $ArticleDb->fetchAll(['order by' => $orderBy, 'limit' => $limit]);
 
       $this->render('news/index', ['articles' => $articles,
                                    'spotlights' => $spotlights,

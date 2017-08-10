@@ -39,9 +39,31 @@
     // }
 
     /**
+     * Fonction qui récupère toutes les infos d'y=une table dans la BDD
+     * @method fetchAll
+     * @param  array $params options [operateur => contrainte]
+     * @return DbTable fille          tableau des données
+     */
+    public function fetchAll($params = '')
+    {
+      $sql = "SELECT * FROM ".$this->_table;
+      // if(isset($params['where']))   $sql .= ' WHERE '.$params['where'];
+      // if(isset($params['orderBy'])) $sql .= ' ORDER BY '.$params['orderBy'];
+      // if(isset($params['limit']))   $sql .= ' LIMIT '.$params['limit'];
+      if(!empty($params)){
+        foreach ($params as $key => $value) {
+          $sql.= ' ' . strtoupper($key) . ' ' . $value;
+        }
+      }
+      $sth = $this->_db->prepare($sql);
+      $sth->execute();
+      return $sth->fetchAll(\PDO::FETCH_CLASS, $this->_classToMap);
+    }
+
+    /**
      * Récupère un enregistrement dans la BDD pour l'ID et la colonne passée en parametres
-     * @param int $id ID de l'élément à recupérer dans la BDD
-     * @param string $column si différent de la clé primaire
+     * @param   int $id ID de l'élément à recupérer dans la BDD
+     * @param   string $column si différent de la clé primaire
      * @return  DbTable de la classe à mapper
      */
     public function fetchOne($id, $column = ''){
@@ -58,15 +80,4 @@
 
     }
 
-    public function fetchAll($params = '')
-    {
-      // $where = '';
-      $sql = "SELECT * FROM ".$this->_table;
-      if(isset($params['where']))   $sql .= ' WHERE '.$params['where'];
-      if(isset($params['orderBy'])) $sql .= ' ORDER BY '.$params['orderBy'];
-      if(isset($params['limit']))   $sql .= ' LIMIT '.$params['limit'];
-      $sth = $this->_db->prepare($sql);
-      $sth->execute();
-      return $sth->fetchAll(\PDO::FETCH_CLASS, $this->_classToMap);
-    }
   }
