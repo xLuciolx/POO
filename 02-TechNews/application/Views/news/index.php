@@ -25,7 +25,7 @@
      					  </a>
      				  </h2>
      				  <div class="meta-post">
-     					  <a href="#">
+     					  <a href="<?=$spotlight->getAuteurObj()->makeAuteurURL(); ?>">
      						  <?= $spotlight->getAuteurObj()->getNomComplet();?>
      					  </a>
      					  <em></em>
@@ -60,7 +60,7 @@
                 <a href="<?= $article->generateURL();?>"><?= $article->getTITREARTICLE(); ?></a>
               </h3>
    					  <div class="meta-post">
-   						  <a href="#">
+   						  <a href="<?= $article->getAuteurObj()->makeAuteurURL(); ?>">
    							  <?= $article->getAuteurObj()->getNomComplet(); ?>
    						  </a>
    						  <em></em>

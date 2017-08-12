@@ -21,7 +21,7 @@
 						</a>
 						<h3><a href="<?= $last->generateURL();?>"><?= $last->getTITREARTICLE(); ?></a></h3>
 						<div class="meta-post">
-							<a href="#">
+							<a href="<?= $last->getAuteurObj()->makeAuteurURL(); ?>">
 								<?= $last->getAuteurObj()->getNOMCOMPLET(); ?>
 
 							</a>
@@ -101,7 +101,7 @@
 					</a>
 					<h3><a href="<?= $special->generateURL();?>"><?= $special->getTITREARTICLE(); ?></a></h3>
 					<div class="meta-post">
-						<a href="#">
+						<a href="<?= $special->getAuteurObj()->makeAuteurURL(); ?>">
 							<?= $special->getAuteurObj()->getNomComplet(); ?>
 						</a>
 						<em></em>

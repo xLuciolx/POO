@@ -46,4 +46,9 @@ class Auteur {
   public function getNOMCOMPLET(){
     return $this->PRENOMAUTEUR . ' ' . $this->NOMAUTEUR;
   }
+
+function makeAuteurURL(){
+  return PUBLIC_URL . '/auteur/' . $this->IDAUTEUR . '-' . $this->PRENOMAUTEUR . '-' . $this->NOMAUTEUR . '.html';
+}
+
 }

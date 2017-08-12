@@ -14,4 +14,6 @@ RewriteRule ^ - [L]
 
 # Règles de Réecriture
 RewriteRule ^article/([0-9]+)-([^/]+)\.html index.php?controller=news&action=article&idarticle=$1 [QSA,L]
+#Ajout réecriture pour les auteurs
+RewriteRule ^auteur/([0-9]+)-([^/]+)\.html index.php?controller=news&action=auteur&idauteur=$1 [QSA,L]
 RewriteRule ^([^/]+)/([^/]+) index.php?controller=$1&action=$2 [QSA,L]

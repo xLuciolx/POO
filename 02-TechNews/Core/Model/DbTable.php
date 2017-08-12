@@ -39,7 +39,7 @@
     // }
 
     /**
-     * Fonction qui récupère toutes les infos d'y=une table dans la BDD
+     * Fonction qui récupère toutes les infos d'une table dans la BDD
      * @method fetchAll
      * @param  array $params options [operateur => contrainte]
      * @return DbTable fille          tableau des données

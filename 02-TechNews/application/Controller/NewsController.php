@@ -75,6 +75,10 @@
 
     }
 
+    public function auteur() {
+      $this->render('news/auteur');
+    }
+
     /*Test fonctionnement idiorm*/
     public function  idiorm(){
 

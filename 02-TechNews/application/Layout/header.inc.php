@@ -1,5 +1,8 @@
 <?php
 
+// echo '<pre>';
+// print_r($_GET);
+// echo '</pre>';
 /*importation des classes*/
 use application\Model\Article\ArticleDb;
 use application\Model\Categorie\CategorieDb;
