@@ -58,14 +58,18 @@
     public function article() {
 
       /*Récupération de l'article*/
-      $article = ORM::for_table('article')->find_one($_GET['idarticle']);
+      // $article = ORM::for_table('article')->find_one($_GET['idarticle']);
+
+      $article     =ORM::for_table('article')
+                    ->join('auteur', array('article.IDAUTEUR', '=', 'auteur.IDAUTEUR'))
+                    ->find_one($_GET['idarticle']);
 
       $suggestions = ORM::for_table('view_articles')
-      ->where('IDCATEGORIE', $article->IDCATEGORIE)
-      ->where_not_equal('IDARTICLE', $article->IDARTICLE)
-      ->limit(3)
-      ->order_by_desc('IDARTICLE')
-      ->find_result_set();
+                    ->where('IDCATEGORIE', $article->IDCATEGORIE)
+                    ->where_not_equal('IDARTICLE', $article->IDARTICLE)
+                    ->limit(3)
+                    ->order_by_desc('IDARTICLE')
+                    ->find_result_set();
 
       $this->render('news/article', ['article' => $article, 'suggestions' => $suggestions]);
 
@@ -75,7 +79,7 @@
     public function  idiorm(){
 
         $categories  = ORM::for_table('categorie')->find_result_set();
-        $auteurs = ORM::for_table('auteur')->find_result_set();
+        $auteurs     = ORM::for_table('auteur')->find_result_set();
 
         $this->render('news/idiorm', ['auteurs' => $auteurs]);
     }

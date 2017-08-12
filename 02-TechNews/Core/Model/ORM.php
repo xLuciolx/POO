@@ -120,9 +120,12 @@
     use Serializable;
     use Exception;
     use PDO;
+    use application\Model\Traits\Shortcut;
+
 
     class ORM implements ArrayAccess {
-
+        /*pour générer le slug*/
+        use Shortcut;
         // ----------------------- //
         // --- CLASS CONSTANTS --- //
         // ----------------------- //

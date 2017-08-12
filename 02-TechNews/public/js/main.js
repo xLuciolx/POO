@@ -43,7 +43,7 @@
 			nav: true,
 			autoplay: true,
 			autoplayHoverPause: true,
-			autoplayTimeout: 3000,
+			autoplayTimeout: 5000,
 			items: 2,
 			mouseDrag: false,
 			navText: ['<i class=\'fa fa-angle-left\'></i>', '<i class=\'fa fa-angle-right\'></i>']

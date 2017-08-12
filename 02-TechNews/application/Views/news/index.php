@@ -16,7 +16,7 @@
           <article class="spotlight-item">
      			  <div class="spotlight-img">
      				  <img alt="<?= $spotlight->getTITREARTICLE(); ?>" src="<?= PUBLIC_URL . '/images/product/' . $spotlight->getFEATUREDIMAGEARTICLE(); ?>" class="img-responsive" />
-     				  <a href="#" class="cate-tag"><?= $spotlight->getCategorieObj()->getLIBELLECATEGORIE(); ?></a>
+     				  <a href="<?= PUBLIC_URL . '/' . $spotlight->getCategorieObj()->getROUTECATEGORIE(); ?>" class="cate-tag"><?= $spotlight->getCategorieObj()->getLIBELLECATEGORIE(); ?></a>
      			  </div>
      			  <div class="spotlight-item-caption">
      				  <h2 class="font-heading">
@@ -54,7 +54,7 @@
    						  <a href="<?= $article->generateURL();?>">
    							  <img alt="<?= $article->getTITREARTICLE(); ?>" src="<?= PUBLIC_URL . '/images/product/' . $article->getFEATUREDIMAGEARTICLE(); ?>" />
    						  </a>
-                <a href="#" class="cate-tag"><?= $article->getCategorieObj()->getLIBELLECATEGORIE(); ?></a>
+                <a href="<?= PUBLIC_URL . '/' . $article->getCategorieObj()->getROUTECATEGORIE(); ?>" class="cate-tag"><?= $article->getCategorieObj()->getLIBELLECATEGORIE(); ?></a>
               </div>
               <h3>
                 <a href="<?= $article->generateURL();?>"><?= $article->getTITREARTICLE(); ?></a>
