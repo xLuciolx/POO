@@ -48,7 +48,7 @@ class Auteur {
   }
 
 function makeAuteurURL(){
-  return PUBLIC_URL . '/auteur/' . $this->IDAUTEUR . '-' . $this->PRENOMAUTEUR . '-' . $this->NOMAUTEUR . '.html';
+  return PUBLIC_URL . '/auteur/' . $this->IDAUTEUR . '-' . strtolower($this->PRENOMAUTEUR) . '-' . strtolower($this->NOMAUTEUR) . '.html';
 }
 
 }

@@ -26,7 +26,7 @@
                              <div class="col-md-7 col-sm-7 col-xs-12">
                                  <h3><a href="<?= $article->generateURL();?>"><?=$article->getTITREARTICLE(); ?></a></h3>
                                  <div class="meta-post">
-                                     <a href="#">
+                                     <a href="<?= $article->getAuteurObj()->makeAuteurURL();?>">
                                          <?= $article->getAuteurObj()->getNOMCOMPLET();?>
                                      </a>
                                      <em></em>

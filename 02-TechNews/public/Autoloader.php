@@ -7,7 +7,9 @@
     }
 
     public static function autoload($class) {
+      // echo '<pre>';
       // print_r($class);
+      // echo '</pre>';
       require ROOT . '/' . $class . '.php';
     }
 

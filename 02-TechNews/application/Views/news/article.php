@@ -11,7 +11,7 @@
                     <article class="post-detail">
                         <h1><?= $article->TITREARTICLE; ?></h1>
                         <div class="meta-post">
-                            <a href="#">
+                            <a href="<?= PUBLIC_URL; ?>/auteur/<?= $article->IDAUTEUR . '-' . $article->generateSlug($article->PRENOMAUTEUR . ' ' . $article->NOMAUTEUR) . '.html'; ?>">
                                 <?= $article->PRENOMAUTEUR . ' ' . $article->NOMAUTEUR; ?>
                             </a>
                             <em></em>
@@ -85,7 +85,7 @@
                                     </div>
                                     <h3><a href="<?= PUBLIC_URL . '/article/' . $suggestion->IDARTICLE . '-' . $suggestion->generateSlug($suggestion->TITREARTICLE) . '.html'; ?>"><?= $suggestion->TITREARTICLE; ?></a></h3>
                                     <div class="meta-post">
-                                        <a href="#">
+                                        <a href="<?= PUBLIC_URL; ?>/auteur/<?= $suggestion->IDAUTEUR . '-' . $suggestion->generateSlug($suggestion->PRENOMAUTEUR . ' ' . $suggestion->NOMAUTEUR) . '.html'; ?>">
                                             <?= $suggestion->PRENOMAUTEUR . ' ' . $suggestion->NOMAUTEUR; ?>
                                         </a>
                                         <em></em>

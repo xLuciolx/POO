@@ -60,23 +60,35 @@
       /*Récupération de l'article*/
       // $article = ORM::for_table('article')->find_one($_GET['idarticle']);
 
-      $article     =ORM::for_table('article')
-                    ->join('auteur', array('article.IDAUTEUR', '=', 'auteur.IDAUTEUR'))
-                    ->find_one($_GET['idarticle']);
+      $article     = ORM::for_table('article')
+                     ->join('auteur', array('article.IDAUTEUR', '=', 'auteur.IDAUTEUR'))
+                     ->find_one($_GET['idarticle']);
 
       $suggestions = ORM::for_table('view_articles')
-                    ->where('IDCATEGORIE', $article->IDCATEGORIE)
-                    ->where_not_equal('IDARTICLE', $article->IDARTICLE)
-                    ->limit(3)
-                    ->order_by_desc('IDARTICLE')
-                    ->find_result_set();
+                     ->where('IDCATEGORIE', $article->IDCATEGORIE)
+                     ->where_not_equal('IDARTICLE', $article->IDARTICLE)
+                     ->limit(3)
+                     ->order_by_desc('IDARTICLE')
+                     ->find_result_set();
 
       $this->render('news/article', ['article' => $article, 'suggestions' => $suggestions]);
 
     }
 
     public function auteur() {
-      $this->render('news/auteur');
+
+      // $articles    = ORM::for_table('view_articles')
+      //               ->where('IDAUTEUR', $_GET['idauteur'])
+      //               ->order_by_desc('DATECREATIONARTICLE')
+      //               ->find_result_set();
+
+      $articlesDB = new ArticleDb();
+      $params = array('where' => 'IDAUTEUR = ' . $_GET['idauteur'],
+                      'order by' => 'DATECREATIONARTICLE DESC'
+                      );
+      $articles   = $articlesDB->fetchAll($params);
+
+      $this->render('news/auteur', ['articles' => $articles]);
     }
 
     /*Test fonctionnement idiorm*/
